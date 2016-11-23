@@ -1,4 +1,5 @@
 module.exports.iniciaChat = function(application, req, res) {
+
   var dadosForm = req.body;
 
   req.assert('apelido', 'Nome ou apelido é obrigatório').notEmpty();
@@ -6,10 +7,9 @@ module.exports.iniciaChat = function(application, req, res) {
 
   var erros = req.validationErrors();
 
-  if(erros){
-    res.render("index", {validacao : erros});
+  if (erros) {
+    res.render('index', {validacao : erros});
     return;
   }
-
-  res.render("chat");
+  res.render('chat');
 }
