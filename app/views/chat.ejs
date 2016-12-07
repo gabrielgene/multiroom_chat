@@ -111,7 +111,8 @@
 		<script src="/socket.io/socket.io.js"></script>
 		<script>
 			var socket = io('http://localhost:8000');
-
+		
+			
 			$('#enviar_mensagem').click( function() {
 
 				socket.emit(
@@ -148,6 +149,21 @@
 				html += '</span>';
 
 				$('#pessoas').append(html);
+			});
+			$(document).keypress(function(e) {
+   				if(e.which == 13) {
+						socket.emit(
+					'msgParaServidor',
+					{
+						apelido: $('#apelido').val(),
+					 	mensagem: $('#mensagem').val(),
+						apelido_atualizado_nos_clientes : $('#apelido_atualizado_nos_clientes').val()
+					}
+				);
+
+				$('#apelido_atualizado_nos_clientes').val(1);
+				$('#mensagem').val('');
+    			}
 			});
 		</script>
 	</body>
