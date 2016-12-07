@@ -16,4 +16,4 @@ To run this project use
 $ node app.js
 ```
 Connect in
-[Localhost:8000](https//localhost:8000)
+[localhost:8000](https//localhost:8000)
